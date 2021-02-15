@@ -1,0 +1,74 @@
+.container
+  .columns.is-centered
+    .column.is-6.mt-2
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html:{class:"shadow-dreamy"}) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        %h2.is-size-3.has-text-weight-semibold.has-text-grey-darker.mt-2 Sign up
+        .field
+          %br/
+          .control
+            .label.has-text-grey-darker.has-text-weight-medium  Email
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class: "input"
+        .field
+          - if @minimum_password_length
+            %em
+          
+            .control
+              .label.has-text-grey-darker.has-text-weight-medium  Password (#{@minimum_password_length} characters minimum)
+              = f.password_field :password, autocomplete: "new-password", placeholder:"Password", class: "input"
+        .field
+          .control 
+            .label.has-text-grey-darker.has-text-weight-medium Confirmation Password
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Password", class: "input"
+
+        .field.columns.is-mobile.mt-2
+          .column.buttons
+            = f.submit "Sign up", class:"button is-primary"
+          .column.has-text-right
+            .button.is-light= render "devise/shared/links"
+
+        -#.control.buttons.level.pt-2
+          -#.level-left
+            -#.level-item= f.submit "Sign up", class:"button is-primary level-left"
+          -#.level-right
+            -#.level-item
+              -#.button-is-light= render "devise/shared/links"
+
+-#.button= f.submit "Sign up", class:"button"
+
+
+-#<h2 class="is-size-3">Sign up</h2>
+
+-#<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  -#<%= render "devise/shared/error_messages", resource: resource %>
+
+  -#<div class="field">
+    -#<%#= f.label :email, class:"label" %><br />
+    -#<div class="control">
+      -#<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", required: true , class: "input" %>
+    -#</div>
+  -#</div>
+
+  -#<div class="field">
+    -#<%#= f.label :password %>
+    -#<% if @minimum_password_length %>
+    -#<em>(<%= @minimum_password_length %> characters minimum)</em>
+    -#<% end %><br />
+    -#<div class="control">
+      -#<%= f.password_field :password, autocomplete: "new-password", placeholder:"Password", required: true, class: "input" %>
+    -#</div>
+  -#</div>
+
+  -#<div class="field">
+    -#<%= f.label :password_confirmation %><br />
+    -#<%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Password", required: true, class: "input"   %>
+  -#</div>
+
+  -#<div class="control buttons">
+    -#<%= f.submit "Sign up", class:"button" %>
+  -#</div>
+-#<% end %>
+
+-#<%= render "devise/shared/links" %>
+

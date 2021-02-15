@@ -1,0 +1,176 @@
+// Variables **BEFORE** 
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+// Set your brand colors
+$purple: #8A4D76;
+$purple-1: #8a4d762b;
+$pink: #FA7C91;
+$brown: #757763;
+$brown-1: #7577632e;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+$white: #fff;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$grey-dark: $brown;
+$grey-light: $beige-light;
+$primary: $purple;
+$link: $pink;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+
+.color--pink{
+  color: $pink;
+}
+
+.shadow-5 {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12),
+  0 2px 2px rgba(0,0,0,0.12),
+  0 4px 4px rgba(0,0,0,0.12),
+  0 8px 8px rgba(0,0,0,0.12),
+  0 16px 16px rgba(0,0,0,0.12);
+}
+
+.shadow-dreamy {
+  //box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+  //0 2px 4px rgba(0,0,0,0.07), 
+  //0 4px 8px rgba(0,0,0,0.07), 
+  //0 8px 16px rgba(0,0,0,0.07),
+  //0 16px 32px rgba(0,0,0,0.07), 
+  //0 32px 64px rgba(0,0,0,0.07);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+  animation: appear 1s ease-in;
+
+}
+
+.box {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Create the hidden pseudo-element */
+/* include the shadow for the end state */
+.box::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+
+//General Reset
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    border-color: none;
+}
+
+
+@import "bulma";
+
+//Overrides **AFTER** bulma
+
+a {
+  &:hover{
+    color:$pink;
+  }
+}
+
+//Sign_up form
+form#new_user{
+  border: 1px solid $white;
+  border-radius: 10px;
+  padding: 16px;
+  padding-top: 16px;
+  padding-top: 0px;
+  background: #fdfdfd;
+  width: 400px;
+  margin: 0 auto;
+  // Here we specify the On Exit delay and transition times
+  //transition: 1s ease-in-out;
+  transition: 1s ease-out;
+  transition-delay: 0.5s;
+}
+
+form#new_user:hover{
+  //Specify On Entry the delay and duration of the animation
+  transition: 0.4s ease-in;
+  transition-delay: 0.3s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+}
+
+@keyframes appear {
+//from {opacity: 0;}
+//to {opacity: 1; } 
+//Apply multiple values or single like above
+0% {opacity: 0;}
+100% {opacity: 1; }
+} 
+
+#error_explanation{
+  //background-color:red;
+ ul{
+   li{
+      list-style-type: circle;
+      color:$pink;
+   }
+ }
+}
+
+
+.field_with_errors{
+border-radius: 4px;
+  border: 1px solid red;
+}
+
+.input{
+
+  border: 1px solid $brown-1;
+  
+  &:hover{
+    border: 1px solid $brown-1;
+    transition: 0.4s ease-in-out;
+    transition: 1s appear;
+  }
+
+	&:focus{
+   border-color: $primary;
+   box-shadow:none;
+	}
+
+	&:active{
+   border-color: #7b7b7b;
+   box-shadow:none;
+	}
+
+	.textarea:hover, .select select:hover, .is-hovered.input, .is-hovered.textarea, .select select.is-hovered {
+    //border-color: #EDEEED;
+    //border-color: #595959;
+    //border-color: #D0D1CD;
+    //border-color: #7B7B7B
+	}
+}

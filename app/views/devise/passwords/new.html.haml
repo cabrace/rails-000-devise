@@ -1,0 +1,33 @@
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class:"shadow-dreamy" }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  %h2.is-size-3.has-text-weight-semibold.has-text-grey-darker.mt-2 Password Reset
+  %br/
+  .field
+    .control
+      .label.has-text-grey-darker.has-text-weight-medium Email
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class: "input"
+
+  .field
+    .control.buttons
+      = f.submit "Reset", class:"button is-primary"
+  .column
+    = render "devise/shared/links"
+
+
+-# Original ERB
+-#<h2>forgot your password?</h2>
+
+-#<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  -#<%= render "devise/shared/error_messages", resource: resource %>
+
+  -#<div class="field">
+    -#<%= f.label :email %><br />
+    -#<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  -#</div>
+
+  -#<div class="actions">
+    -#<%= f.submit "send me reset password instructions" %>
+  -#</div>
+-#<% end %>
+
+-#<%= render "devise/shared/links" %>

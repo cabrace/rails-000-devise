@@ -1,0 +1,52 @@
+.container
+  .columns.is-centered
+    .column.is-6.mt-2
+      = form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:"shadow-dreamy"}) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        %h2.is-size-3.has-text-weight-semibold.has-text-grey-darker.mt-2 Sign In
+        .field
+          %br/
+          .control
+            .label.has-text-grey-darker.has-text-weight-medium  Email
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class: "input"
+        .field
+          .control
+            .label.has-text-grey-darker.has-text-weight-medium  Password
+            = f.password_field :password, autocomplete: "new-password", placeholder:"Password", class: "input"
+
+        .control.buttons.level.pt-2
+          .level-left
+            .level-item= f.submit "Sign in", class:"button is-primary level-left"
+          .level-right
+            .level-item
+        .columns
+          .column
+            = render "devise/shared/links"
+
+
+-#<%<h2>Log in</h2>%>
+
+-#<%<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>%>
+  -#<%<div class="field">%>
+    -#<%<%= f.label :email %><br />%>
+    -#<%<%= f.email_field :email, autofocus: true, autocomplete: "email" %>%>
+  -#<%</div>%>
+
+  -#<%<div class="field">%>
+    -#<%<%= f.label :password %><br />%>
+    -#<%<%= f.password_field :password, autocomplete: "current-password" %>%>
+  -#<%</div>%>
+
+  -#<%<% if devise_mapping.rememberable? %>%>
+    -#<%<div class="field">%>
+      -#<%<%= f.check_box :remember_me %>%>
+      -#<%<%= f.label :remember_me %>%>
+    -#<%</div>%>
+  -#<%<% end %>%>
+
+  -#<%<div class="actions">%>
+    -#<%<%= f.submit "Log in" %>%>
+  -#<%</div>%>
+-#<%<% end %>%>
+
+-#<%<%= render "devise/shared/links" %>%>

@@ -1,0 +1,57 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Devise
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    =# stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .content
+      =render 'layouts/nav'
+      
+
+      = render 'devise/shared/error_messages' if !flash.empty?
+      -# Individual page View sections
+      %section.section
+        = yield
+
+    
+      .content
+        - if !flash.empty?
+          - if flash[:notice]
+            .notification.is-warning.is-primary.is-light
+              %button.delete
+              = notice  
+          - elsif flash[:alert]
+            .notification.is-primary.is-light
+              %button.delete
+              = alert
+
+    -#%p.notice= notice
+      %p.alert= alert
+
+
+
+<!DOCTYPE html>
+-#<html>
+  -#<head>
+    -#<title>Devise</title>
+    -#<meta name="viewport" content="width=device-width,initial-scale=1">
+    -#<%= csrf_meta_tags %>
+    -#<%= csp_meta_tag %>
+
+    -#<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    -#<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  -#</head>
+
+  -#<body>
+    -#<p class="notice"><%= notice %></p>
+    -#<p class="alert"><%= alert %></p>
+
+    -#<%= yield %>
+  -#</body>
+-#</html>
