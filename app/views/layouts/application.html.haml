@@ -12,16 +12,16 @@
   %body
     .content
       =render 'layouts/nav'
-      .content.p-5
-        - if !flash.empty?
-          - if flash[:notice]
-            .notification.is-warning.is-primary.is-light.mt-4
-              %button.delete
-              = notice  
-          - elsif flash[:alert]
-            .notification.is-primary.is-light.mt-4
-              %button.delete
-              = alert
+      - if !flash.empty?
+        - if flash[:notice]
+          -# Make sure that the .content.m-5 is set so give padding for alert container
+          .notification.is-warning.is-primary.is-light.mt-4.content.m-5
+            %button.delete
+            = notice  
+        - elsif flash[:alert]
+          .notification.is-primary.is-light.mt-4
+            %button.delete
+            = alert
       
 
       = render 'devise/shared/error_messages' if !flash.empty?
